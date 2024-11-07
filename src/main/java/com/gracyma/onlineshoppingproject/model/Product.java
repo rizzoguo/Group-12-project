@@ -13,7 +13,7 @@ import javax.persistence.*;
 @AllArgsConstructor
 
 @Entity
-public class OnlineShoppingProducts {
+public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -27,9 +27,9 @@ public class OnlineShoppingProducts {
     private double price;
 
     // Constructors
-    public OnlineShoppingProducts () {}
+    public Product() {}
 
-    public OnlineShoppingProducts (String name, String description, double price) {
+    public Product(String name, String description, double price) {
         this.name = name;
         this.description = description;
         this.price = price;

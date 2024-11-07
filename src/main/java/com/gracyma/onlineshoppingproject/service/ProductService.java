@@ -1,7 +1,7 @@
 package com.gracyma.onlineshoppingproject.service;
 
 
-import com.gracyma.onlineshoppingproject.model.OnlineShoppingProducts;
+import com.gracyma.onlineshoppingproject.model.Product;
 import com.gracyma.onlineshoppingproject.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -19,19 +19,19 @@ public class ProductService {
         this.productRepository = productRepository;
     }
 
-    public List<OnlineShoppingProducts> getAllProducts() {
+    public List<Product> getAllProducts() {
         return productRepository.findAll();
     }
 
-    public Optional<OnlineShoppingProducts> getProductById(Long id) {
+    public Optional<Product> getProductById(Long id) {
         return productRepository.findById(id);
     }
 
-    public OnlineShoppingProducts createProduct(OnlineShoppingProducts product) {
+    public Product createProduct(Product product) {
         return productRepository.save(product);
     }
 
-    public OnlineShoppingProducts updateProduct(Long id, OnlineShoppingProducts updatedProduct) {
+    public Product updateProduct(Long id, Product updatedProduct) {
         return productRepository.findById(id).map(product -> {
             product.setName(updatedProduct.getName());
             product.setDescription(updatedProduct.getDescription());
