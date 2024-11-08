@@ -1,10 +1,5 @@
 package com.gracyma.onlineshoppingproject.db.po;
 
-import lombok.Builder;
-import lombok.Data;
-
-@Data
-@Builder
 public class OnlineShoppingUser {
     private Long userId;
 

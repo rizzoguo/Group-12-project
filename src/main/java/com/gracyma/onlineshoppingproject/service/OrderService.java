@@ -1,5 +1,6 @@
 package com.gracyma.onlineshoppingproject.service;
 
+import com.alibaba.fastjson.JSON;
 import com.gracyma.onlineshoppingproject.db.dao.OnlineShoppingCommodityDao;
 import com.gracyma.onlineshoppingproject.db.dao.OnlineShoppingOrderDao;
 import com.gracyma.onlineshoppingproject.db.po.OnlineShoppingCommodity;
@@ -51,6 +52,7 @@ public class OrderService {
                 .createTime(new Date())
                 .userId(Long.valueOf(userId))
                 .build();
+        onlineShoppingOrderDao.insertOrder(order);
         return order;
     }
 
