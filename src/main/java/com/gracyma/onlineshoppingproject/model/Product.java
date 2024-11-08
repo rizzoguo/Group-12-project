@@ -12,6 +12,7 @@ import javax.persistence.*;
 @Data
 @AllArgsConstructor
 
+
 @Entity
 public class Product {
     @Id
@@ -26,13 +27,17 @@ public class Product {
     @Column(nullable = false)
     private double price;
 
+    @Column(nullable = false)
+    private String imageUrl;
+
     // Constructors
     public Product() {}
 
-    public Product(String name, String description, double price) {
+    public Product(String name, String description, double price, String imageUrl) {
         this.name = name;
         this.description = description;
         this.price = price;
+        this.imageUrl = imageUrl;
     }
 
     // Getters and Setters
@@ -67,4 +72,13 @@ public class Product {
     public void setPrice(double price) {
         this.price = price;
     }
+
+    public void setImageUrl(String imageUrl){
+        this.imageUrl = imageUrl;
+    }
+
+    public String getImageUrl(){
+        return imageUrl;
+    }
+
 }
