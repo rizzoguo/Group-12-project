@@ -3,6 +3,7 @@ package com.gracyma.onlineshoppingproject.controller;
 import com.gracyma.onlineshoppingproject.model.OnlineShoppingUser;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -15,6 +16,7 @@ import java.util.Map;
 @Slf4j
 public class UserController {
     HashMap<String, OnlineShoppingUser> userMaps = new HashMap<>();
+
     @PostMapping("/users")
     public String createUser(@RequestParam("id") String id,
                              @RequestParam("name") String name,
@@ -27,18 +29,17 @@ public class UserController {
                 .email(email)
                 .build();
         userMaps.put(id, user); // use hash map to put values in database
-        resultMap.put("abc", user);
-               return user.toString();
-        //       return "user_detail"; // now return the name of View file
+        resultMap.put("user", user);
+        return "user_detail"; // now return the name of View file
 
     }
 
     @GetMapping("/users/{id}")
-    public String getUser (@PathVariable("id") String id,
-                           Map<String,Object> resultMap){
+    public String getUser(@PathVariable("id") String id,
+                          Map<String, Object> resultMap) {
         OnlineShoppingUser user = userMaps.get(id);
 //        OnlineShoppingUser user = userMaps.getOrDefault(id, defaultUser);
-        resultMap.put("abc", user);
+        resultMap.put("user", user);
         return "user_detail";
     }
 }
